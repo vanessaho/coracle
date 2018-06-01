@@ -1,0 +1,253 @@
+*, body {
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    font-weight: 100;
+    box-sizing: border-box;
+}
+
+i {
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#register-div {
+    margin: 0 auto;
+    padding: 1em;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#register-div * {
+    margin: 0 auto;
+}
+
+#form {
+    width: 60%;
+    position: relative;
+    padding-bottom: 2em;
+}
+
+#form #house {
+    height: 25vh;
+    max-height: 300px;
+    text-align: center;
+}
+
+#house h2 {
+    background-color: rgba(20, 30, 48, 0.7);
+    background-image: linear-gradient(to bottom, rgba(20, 30, 48, 0.5), rgba(36, 59, 85, .7));
+    color: white;
+    width: 80%;
+    height: 25vh;
+    max-height: 300px;
+    line-height: 25vh;
+    -webkit-box-shadow: 0px 5px 15px 2px rgba(11, 60, 93, 0.2);
+    box-shadow: 0px 5px 15px 2px rgba(11, 60, 93, 0.2);
+    -ms-box-shadow: 0px 5px 15px 2px rgba(11, 60, 93, 0.2);
+    -moz-box-shadow: 0px 5px 15px 2px rgba(11, 60, 93, 0.2);
+    -o-box-shadow: 0px 5px 15px 2px rgba(11, 60, 93, 0.2);
+}
+
+#signupform {
+    position: relative;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    -webkit-box-shadow: 0px 5px 15px 2px rgba(11, 60, 93, 0.2);
+    box-shadow: 0px 5px 15px 2px rgba(11, 60, 93, 0.2);
+    -ms-box-shadow: 0px 5px 15px 2px rgba(11, 60, 93, 0.2);
+    -moz-box-shadow: 0px 5px 15px 2px rgba(11, 60, 93, 0.2);
+    -o-box-shadow: 0px 5px 15px 2px rgba(11, 60, 93, 0.2);
+}
+
+#signupform label {
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    -o-flex: 1;
+    flex: 1;
+    width: 80%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.25em 1.25em 0 1.25em;
+}
+
+#signupform .label-text {
+    text-align: center;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    -o-flex: 1;
+    flex: 1;
+    position: relative;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+}
+
+#signupform label input {
+    width: 80%;
+    padding: 0 0.625em 0 0.625em;
+    border: 1px dashed rgba(0, 0, 0, 0.3);
+    border-left: none;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+#signupform label input:focus {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-left: none;
+}
+
+#signupform span {
+    position: relative;
+    margin-bottom: 1em;
+    font-size: 1em;
+    line-height: 1em;
+    width: 60%;
+    -webkit-flex: 11;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    -o-flex: 1;
+    flex: 1;
+    justify-content: flex-start;
+}
+
+#signupform span:first-of-type {
+    margin-top: 1em;
+}
+
+#signupform span input[type=checkbox] {
+    -webkit-transform: scale(1.25);
+    -ms-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    transform: scale(1.25);
+    margin-right: 0.25em;
+    position: relative;
+}
+
+#signupform button {
+    width: 50%;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 1.5em;
+    border: 1px solid black;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    height: 40px;
+    line-height: 40px;
+    background: none;
+    border-radius: 10px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-box-shadow: 0px 3px 1px 2px rgba(11, 60, 93, 0.2);
+    box-shadow: 0px 3px 1px 2px rgba(11, 60, 93, 0.2);
+    -ms-box-shadow: 0px 3px 1px 2px rgba(11, 60, 93, 0.2);
+    -moz-box-shadow: 0px 3px 1px 2px rgba(11, 60, 93, 0.2);
+    -o-box-shadow: 0px 3px 1px 2px rgba(11, 60, 93, 0.2);
+}
+
+#signupform button span {
+    position: relative;
+    height: 100%;
+    line-height: 100%;
+    padding: 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-transform: translateX(-10px);
+    -ms-transform: translateX(-10px);
+    -o-transform: translateX(-10px);
+    transform: translateX(-10px);
+}
+
+#signupform button i {
+    display: none;
+}
+
+#signupform button:hover {
+    cursor: pointer;
+    color: white;
+    background: black;
+}
+
+#signupform button:hover i {
+    display: inline-block;
+}
+
+footer {
+    margin: 0;
+    height: 50px;
+    width: 100%;
+    background: #333333;
+    color: #999999;
+    vertical-align: middle;
+}
+
+footer p {
+    line-height: 50px;
+    margin: 0;
+    text-align: center;
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 500px) {
+
+}
+
+@keyframes bounce {
+    0%, 20%, 60%, 100% {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    40% {
+        -webkit-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+        -o-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+
+    80% {
+        -webkit-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        -o-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+}

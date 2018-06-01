@@ -1,0 +1,186 @@
+*, body {
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    font-weight: 100;
+    box-sizing: border-box;
+}
+
+i {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #333;
+}
+
+.fa-exchange-alt, .fa-angle-double-right {
+    height: 0.75em;
+    -webkit-transform: translateY(25%);
+    -ms-transform: translateY(25%);
+    -o-transform: translateY(25%);
+    transform: translateY(25%);
+    color: #999;
+}
+
+body {
+    width: 100%;
+}
+
+#booking-div {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    padding: 1em;
+}
+
+#booking-div h3 {
+    position: relative;
+    padding-bottom: 0.5em;
+    width: 100%;
+    color: #333;
+}
+
+#booking-div h4 {
+    color: #444;
+    text-align: left;
+}
+
+#booking-div h3:before {
+    content: "";
+    position: absolute;
+    width: 60%;
+    border: 2px solid #999999;
+    bottom: 0;
+}
+
+#booking-form, #booking-form-final {
+    text-align: center;
+}
+
+#booking-form button, #booking-form-final button {
+    margin: 1em;
+}
+
+#booking-form .striped, #booking-form-final .striped {
+    padding: 1em;
+    position: relative;
+}
+
+#booking-form .striped:nth-child(2n), #booking-form-final .striped:nth-child(2n) {
+    background: darkgray;
+}
+
+#booking-form .striped:nth-child(2n) h4, #booking-form .striped:nth-child(2n) i, #booking-form-final .striped:nth-child(2n) h4, #booking-form-final .striped:nth-child(2n) i {
+    color: white;
+}
+
+.striped label > input { /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+
+.striped label {
+    background: lightgray;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    position: relative;
+}
+
+#booking-div .striped .row label h4 {
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+#booking-div .card img {
+    padding: 1em;
+}
+
+.striped label > input + img { /* IMAGE STYLES */
+    position: relative;
+    cursor:pointer;
+    height: 150px;
+    border:2px solid transparent;
+    padding: 1em;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    border-radius: 0.5em;
+}
+
+.striped label > input + img:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.striped .light label > input + img:hover {
+    background: rgba(200, 200, 200, 0.2);
+}
+
+.striped label > input:checked + img { /* (RADIO CHECKED) IMAGE STYLES */
+    border: 1px dashed #fff;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.striped .light label > input:checked + img { /* (RADIO CHECKED) IMAGE STYLES */
+    border: 1px dashed rgba(200, 200, 200, 1);
+    background: rgba(200, 200, 200, 0.2);
+}
+
+.attraction-box {
+    height: 25px;
+    width: 25px;
+}
+
+footer {
+    height: 50px;
+    width: 100%;
+    background: #333333;
+    color: #999999;
+    vertical-align: middle;
+}
+
+footer p {
+    line-height: 50px;
+    margin: 0;
+    text-align: center;
+}
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9; 
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+.striped label > input:checked + p {
+    border: 1px dashed #fff;
+    background: #555;
+}

@@ -1,0 +1,101 @@
+*, body {
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    font-weight: 100;
+    box-sizing: border-box;
+}
+
+i {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #333;
+}
+
+#attraction-div {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    padding: 2em;
+    text-align: center;
+}
+
+#attraction-div .row h1 {
+    color: #444;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #999;
+}
+
+#attraction-div .row h3, #attraction-div .row p, #attraction-div .row h2 {
+    text-align: left;
+}
+
+#attraction-div img {
+    width: 300px;
+    height: auto;
+    padding: 0 1em 1em 1em;
+}
+
+#attraction-div #review-form {
+    position: relative;
+    margin: 50px;
+}
+
+#attraction-div #review-form .ranger {
+    text-align: left;
+}
+
+output { 
+  position: absolute;
+  background-image: linear-gradient(#444444, #999999);
+  width: 40px; 
+  height: 30px; 
+  text-align: center; 
+  color: white; 
+  border-radius: 10px; 
+  display: inline-block; 
+  font: bold 15px/30px Georgia;
+  bottom: 175%;
+  left: 0;
+  margin-left: -1%;
+}
+
+output:after { 
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 10px solid #999999;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  margin-top: -1px;
+}
+
+#attraction-div #reviews h2{
+    text-align: center;
+    width: 100%;
+}
+
+#attraction-heading {
+    width: 100%;
+    text-align: center;
+}
+
+footer {
+    height: 50px;
+    width: 100%;
+    background: #333333;
+    color: #999999;
+    vertical-align: middle;
+}
+
+footer p {
+    line-height: 50px;
+    margin: 0;
+    text-align: center;
+}

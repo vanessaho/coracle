@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Coracle | Where does your heart live?</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+        <link rel="stylesheet" href="/static/css/attraction.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <meta name="description" content="We can take you to the ends of the earth." />
+        <meta name="title" content="Coracle | Where does your heart live?" />
+        <meta name="author" content="Three muskateers" />
+        <meta charset="UTF-8" />
+        <link rel="icon" href="/static/img/icon.png" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link href='https://fonts.googleapis.com/css?family=Lato|Clicker+Script' rel='stylesheet' type='text/css' />
+        <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="{{ url_for('index') }}"><img src="/static/img/icon-white.png" alt="Coracle"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+             <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('index') }}">Home </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('AttractionsReviews.attraction_reviews') }}">Attraction Reviews</a>
+              </li>
+  {% if username %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('Booking.booking') }}">Booking</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('trip.past_trips') }}">Account</a>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('Accounts.logout') }}">Log Out</a>
+              </li>
+  {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('Accounts.login') }}">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('Accounts.signup') }}">Register</a>
+              </li>
+  {% endif %}
+            </ul>
+            <span class="navbar-text">
+              Adventures don't come without a price.
+            </span>
+          </div>
+        </nav>
+        <div id="attraction-div" class="container">
+            <div class="row">
+                <h1>{{ name|e }}</h1>
+            </div>
+             <div class="row">
+                <div class="col-md">
+{% if attrType == 'Zoo' %}
+                  <img src="/static/img/zoo.svg" alt="Zoo">
+{% elif attrType == 'Museum' %}
+                  <img src="/static/img/museum.svg" alt="Zoo">
+{% elif attrType == 'Restaurant' %}
+                  <img src="/static/img/restaurant.svg" alt="Zoo">
+{% elif attrType == 'University' %}
+                  <img src="/static/img/university.svg" alt="Zoo">
+{% elif attrType == 'Market' %}
+                  <img src="/static/img/market.svg" alt="Zoo">
+{% endif %}
+                </div>
+                <div class="col-md">
+                    <h2>{{ city|e }}</h2>
+                    <h3>Rating {{ avgRating|e }}</h3>
+                    <p>{{ description }}</p>
+                </div>
+              </div>
+{% if username %}
+              <div class="row">
+                  <form class="container" id="review-form" method="post" name="reviewform" action="{{ url_for('AttractionsReviews.post_review') }}">
+                     <div class="form-group row">
+                        <h4 id="attraction-heading">Rate this attraction!</h4>
+                        <div class="col-sm-10 ranger">
+                          <input type="range" name="review" min="1" max="5">
+                            <output for="review" onforminput="value = review.valueAsNumber;"></output>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <textarea class="form-control" name="reviewtext" id="reviewtext" rows="3" placeholder="Review the attraction here."></textarea>
+                      </div>
+                      <input type="hidden" name="AttractionId" value="{{ attractionId }}">
+                      <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    </form>
+              </div>
+{% else %}
+              <div class="row">
+              <br>
+              <br>
+                      <h4 id="attraction-heading">Log in to rate this attraction!</h4>
+              <br>
+              <br>
+              </div>
+{% endif %}
+              <div class="row" id="reviews">
+                  <h2>Existing Reviews</h2>
+                  <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Date Posted</th>
+                      <th scope="col">Handle</th>
+                      <th scope="col">Rating</th>
+                      <th scope="col">Comment</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for review in reviews %}
+                    <tr>
+                      <th scope="row">{{ loop.index }}</th>
+                      <td>{{ review.postDate|e }}</td>
+                      <td>{{ review.username|e }}</td>
+                      <td>{{ review.rating|e }}</td>
+                      <td>{{ review.reviewText|e }}</td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+        <footer>
+            <p>Created by Daniel Mu, Andy Ouyang, Po Yiu Ho. Coracles are boats.</p>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/attraction.js"></script>
+    </body>
+</html>

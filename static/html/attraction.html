@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Coracle | Where does your heart live?</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+        <link rel="stylesheet" href="../css/attraction.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <meta name="description" content="We can take you to the ends of the earth." />
+        <meta name="title" content="Coracle | Where does your heart live?" />
+        <meta name="author" content="Three muskateers" />
+        <meta charset="UTF-8" />
+        <link rel="icon" href="../img/icon.png" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link href='https://fonts.googleapis.com/css?family=Lato|Clicker+Script' rel='stylesheet' type='text/css' />
+        <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="index.html"><img src="../img/icon-white.png" alt="Coracle"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+             <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="reviews.html">Attraction Reviews</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="booking.html">Booking</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="history.html">History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="register.html">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Log out</a>
+              </li>
+            </ul>
+            <span class="navbar-text">
+              Adventures don't come without a price.
+            </span>
+          </div>
+        </nav>
+        <div id="attraction-div" class="container">
+            <div class="row">
+                <h1>Boston's Museum</h1>
+            </div>
+             <div class="row">
+                <div class="col-md">
+                  <img src="../img/icon.png" alt="">
+                </div>
+                <div class="col-md">
+                    <h2>Boston, Massachusetts</h2>
+                    <h3>Rating 4.5</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam omnis quasi quidem officiis necessitatibus consequatur, aut assumenda saepe doloribus soluta. Ullam dolores, nam quod iste id ratione sed perferendis beatae.</p>
+                </div>
+              </div>
+              <div class="row">
+                  <form class="container" id="review-form" method="post" name="reviewform">
+                     <div class="form-group row">
+                        <h4 id="attraction-heading">Rate this attraction!</h4>
+                        <div class="col-sm-10 ranger">
+                          <input type="range" name="review" min="1" max="5">
+                            <output for="review" onforminput="value = review.valueAsNumber;"></output>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <textarea class="form-control" name="reviewtext" id="reviewtext" rows="3" placeholder="Review the attraction here."></textarea>
+                      </div>
+                      <input type="hidden" name="AttractionId" value="">
+                      <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    </form>
+              </div>
+              <div class="row" id="reviews">
+                  <h2>Existing Reviews</h2>
+                  <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Date Posted</th>
+                      <th scope="col">Handle</th>
+                      <th scope="col">Rating</th>
+                      <th scope="col">Comment</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>10/13/2018</td>
+                      <td>@mdo</td>
+                      <td>4.5</td>
+                      <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis sequi, ullam eveniet optio quam similique quos, cum necessitatibus possimus alias consequatur laboriosam quisquam id quae. Nisi similique id, nesciunt distinctio.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>10/13/2018</td>
+                      <td>@andyandyandy</td>
+                      <td>4.5</td>
+                      <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, ex quia ad fugiat numquam cupiditate placeat nesciunt modi! Ipsam quas eius praesentium velit deserunt maxime eveniet? Quam, suscipit. At, quasi.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>10/13/2018</td>
+                      <td>@dmuuuuuuu</td>
+                      <td>4.5</td>
+                      <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia voluptate deserunt rerum explicabo, hic porro laudantium molestiae quo sequi quas, veniam. Ratione dolore quam molestias temporibus expedita quae fuga suscipit!</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+        <footer>
+            <p>Created by Daniel Mu, Andy Ouyang, Po Yiu Ho. Coracles are boats.</p>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/attraction.js"></script>
+    </body>
+</html>

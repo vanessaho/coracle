@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coracle | Where does your heart live?</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+        <link rel="stylesheet" href="/static/css/account.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <meta name="description" content="We can take you to the ends of the earth." />
+        <meta name="title" content="Coracle | Where does your heart live?" />
+        <meta name="author" content="Three muskateers" />
+        <meta charset="UTF-8" />
+        <link rel="icon" href="/static/img/icon.png" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link href='https://fonts.googleapis.com/css?family=Lato|Clicker+Script' rel='stylesheet' type='text/css' />
+        <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="index.html"><img src="/static/img/icon-white.png" alt="Coracle"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+             <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('AttractionsReviews.attraction_reviews') }}">Attraction Reviews</a>
+              </li>
+  {% if username %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('Booking.booking') }}">Booking</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('trip.past_trips') }}">Account <span class="sr-only">(current)</span></a>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('Accounts.logout') }}">Log Out</a>
+              </li>
+  {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('Accounts.login') }}">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('Accounts.signup') }}">Register</a>
+              </li>
+  {% endif %}
+            </ul>
+            <span class="navbar-text">
+              Adventures don't come without a price.
+            </span>
+          </div>
+        </nav>
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+        {{error}}
+        </div>
+        {% endif %}
+        <div id="history-div" class="container">
+            <h1>Trips History</h1>
+            <table class="table table-hover table-dark">
+              <thead>
+                <tr>
+                     <!-- colspan="2" for column to span over two rows -->
+                  <th scope="col">From</th>
+                  <th scope="col">To</th>
+                  <th scope="col">Start Date</th>
+                  <th scope="col">End Date</th>
+                  <th scope="col">Transportation</th>
+                  <th scope="col">Accommodation</th>
+                  <th scope="col">Attractions</th>
+                  <th scope="col">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for trip in trips %}
+                  <tr>
+                  <td>{{trip.fromLocation}}</td>
+                  <td>{{trip.toLocation}}</td>
+                  <td>{{trip.startDate}}</td>
+                  <td>{{trip.endDate}}</td>
+                  <td>{{trip.transportationName}}</td>
+                  <td>{{trip.accommodationName}}</td>
+                  <td>
+                      <ul>
+                        {% for attraction in trip.attractions %}
+                          <li>{{attraction}}</li>
+                        {% endfor %}
+                      </ul>
+                  </td>
+                  <td>{{trip.paymentAmount}}</td>
+                </tr>
+                {% endfor %}
+                
+              </tbody>
+            </table>
+             <div class="row">
+                <div class="col">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#changePassword">
+                      Change Password
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="changePasswordLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="changePasswordLabel">Change Password</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form id="change-pass-form" method="POST" name="changepassform" action="{{ url_for('AccountUpdates.update_password') }}">
+                              <div class="form-group row">
+                                <label for="newpass" class="col-sm-4 col-form-label">New Password</label>
+                                <div class="col-sm-8">
+                                  <input type="password" class="form-control" id="newpass" name="newpass" placeholder="New password">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="confirmnewpass" class="col-sm-4 col-form-label">Confirm Password</label>
+                                <div class="col-sm-8">
+                                  <input type="password" class="form-control" id="confirmnewpass"  name="confirmnewpass" placeholder="Confirm new password">
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAccount">
+                      Delete Account
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="deleteAccount" tabindex="-1" role="dialog" aria-labelledby="deleteAccountLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="deleteAccountLabel">Delete Account</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            Are you sure you want to delete your account?
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <form id="delete-form" method="POST" name="deleteform" action="{{ url_for('AccountUpdates.delete_account') }}">
+                                <button type="submit" class="btn btn-danger">Delete Account</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <footer>
+            <p>Created by Daniel Mu, Andy Ouyang, Po Yiu Ho. Coracles are boats.</p>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+    </body>
+</html>

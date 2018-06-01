@@ -1,0 +1,128 @@
+*, body {
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    font-weight: 100;
+    box-sizing: border-box;
+}
+
+i {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #333;
+}
+
+#search-div {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background-color: rgba(20, 30, 48, 0.7);
+    background-image: linear-gradient(to bottom, rgba(20, 30, 48, 0.5), rgba(36, 59, 85, .9));
+    background: linear-gradient(to bottom, rgba(20, 30, 48, 0.5), rgba(36, 59, 85, .9)), url("../img/dark.jpg") center fixed;
+}
+
+#search-div #search-bar {
+    position: absolute;
+    width: 75%;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#search-bar h1 {
+    padding-bottom: 1em;
+}
+
+#search-bar .bottom {
+    width: 100%;
+    text-align: center;
+    color: white;
+    padding: 1em;
+    animation: movedown 1s ease-in-out infinite;
+    -moz-animation: movedown 1s ease-in-out infinite;
+    -o-animation: movedown 1s ease-in-out infinite;
+    -ms-animation: movedown 1s ease-in-out infinite;
+}
+
+#search-results {
+    position: relative;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#search-results h2 {
+    margin-bottom: 1em;
+}
+
+#search-results .row {
+    margin-bottom: 1em;
+}
+
+#search-results .card img {
+    padding: 1em;
+}
+
+footer {
+    height: 50px;
+    width: 100%;
+    background: #333333;
+    color: #999999;
+    vertical-align: middle;
+}
+
+footer p {
+    line-height: 50px;
+    margin: 0;
+    text-align: center;
+}
+
+@keyframes movedown {
+    0% {
+        transform: translateY(0px);
+    }
+    
+    100% {
+        -webkit-transform: translateY(15px);
+        -ms-transform: translateY(15px);
+        -o-transform: translateY(15px);
+        transform: translateY(15px);
+    }
+}
+
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9; 
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}

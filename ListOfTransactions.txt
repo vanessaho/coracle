@@ -1,0 +1,11 @@
+1. Register
+2. Login
+3. Book Trip
+4. Autocomplete "ToLocation" and "FromLocation" search by querying database for cities that have similar spelling to what the user has typed.
+5. View currently planned Itinerary
+6. View past itineraries/trips and payments
+7. Make payment
+8. View attractions
+9. View travel options
+10. View accomodation options
+11. View 

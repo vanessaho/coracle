@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coracle | Where does your heart live?</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+        <link rel="stylesheet" href="/static/css/booking.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <meta name="description" content="We can take you to the ends of the earth." />
+        <meta name="title" content="Coracle | Where does your heart live?" />
+        <meta name="author" content="Three muskateers" />
+        <meta charset="UTF-8" />
+        <link rel="icon" href="/static/img/icon.png" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link href='https://fonts.googleapis.com/css?family=Lato|Clicker+Script' rel='stylesheet' type='text/css' />
+        <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="{{ url_for('index') }}"><img src="/static/img/icon-white.png" alt="Coracle"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+             <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('AttractionsReviews.attraction_reviews') }}">Attraction Reviews</a>
+              </li>
+  {% if username %}
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('Booking.booking') }}">Booking <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('trip.past_trips') }}">Account</a>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('Accounts.logout') }}">Log Out</a>
+              </li>
+  {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('Accounts.login') }}">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('Accounts.signup') }}">Register</a>
+              </li>
+  {% endif %}
+            </ul>
+            <span class="navbar-text">
+              Adventures don't come without a price.
+            </span>
+          </div>
+        </nav>
+        <div id="booking-div" class="container">
+           <h3>Live Before You Die. Book a trip today!</h3>
+            <form id="booking-form" method="post" name="bookingform" autocomplete="off" action="{{ url_for('Booking.booking2') }}">
+               <div class="striped">
+                  <h4>Choose your happy place...</h4>
+                   <div class="form-group row">
+                        <div class="col">
+                            <div class="input-group mb-2 autocomplete">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-plane fa-lg"></i></div>
+                                </div>
+                                <input type="text" class="form-control" id="from" placeholder="Source location" name="from" required />
+                            </div>
+                        </div>
+                        <i class="fas fa-exchange-alt fa-2x"></i>
+                        <div class="col">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-plane fa-lg"></i></div>
+                                </div>
+                                <input type="text" class="form-control" id="to" placeholder="Destination location" name="to" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                       <div class="col">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-calendar-check fa-lg"></i></div>
+                                </div>
+                                <input type="date" class="form-control" id="start" name="start" required />
+                            </div>
+                        </div>
+                        <i class="fas fa-angle-double-right fa-2x"></i>
+                        <div class="col">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-calendar-times fa-lg"></i></div>
+                                </div>
+                                <input type="date" class="form-control" id="end" name="end" required />
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-user fa-lg"></i></div>
+                                </div>
+                                <input type="number" class="form-control" id="tickets" name="tickets" value="1" step="1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                       <div class="col-sm-1">
+                            <h4>Times</h4>
+                        </div>
+                        <div class="col-sm-1">
+                            <label>
+                                <input type="radio" name="time" value="3:15PM" />
+                                <p class="btn btn-dark">3:15PM</p>
+                              </label>
+                        </div>
+                        <div class="col-sm-1">
+                            <label>
+                                <input type="radio" name="time" value="4:15PM" />
+                                <p class="btn btn-dark">4:15PM</p>
+                              </label>
+                        </div>
+                    </div>
+               </div>
+               <div class="striped">
+                  <h4>Select your transportation...</h4>
+                  <div class="row">
+                        <div class="col-sm-3">
+                              <label>
+                                <input type="radio" name="transportation" value="Plane" />
+                                <img src="/static/img/plane.svg">
+                                <h4>Plane</h4>
+                              </label>
+                        </div>
+                          <div class="col-sm-3">
+                                <label>
+                                <input type="radio" name="transportation" value="Cruise" />
+                                <img src="/static/img/cruise.svg">
+                                <h4>Cruise</h4>
+                              </label>
+                        </div>
+                        <div class="col-sm-3">
+                                <label>
+                                <input type="radio" name="transportation" value="Train" />
+                                <img src="/static/img/train.svg">
+                                <h4>Train</h4>
+                              </label>
+                        </div>
+                        <div class="col-sm-3">
+                                <label>
+                                <input type="radio" name="transportation" value="Car" />
+                                <img src="/static/img/car.svg">
+                                <h4>Car Rental</h4>
+                              </label>
+                        </div>
+                    </div>
+               </div>
+               <div class="striped">
+                  <h4>Pick your accommodation...</h4>
+                   <div class="row light">
+                        <div class="col">
+                              <label>
+                                <input type="radio" name="accommodation" value="Airbnb" />
+                                <img src="/static/img/airbnb.svg">
+                                <h4>
+                                     <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Wifi, TV, etc.">
+                                          Airbnb Amenities
+                                    </button>
+                                </h4>
+                              </label>
+                        </div>
+                          <div class="col">
+                                <label>
+                                <input type="radio" name="accommodation" value="Hotel" />
+                                <img src="/static/img/hotel.svg">
+                                <h4>
+                                     <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="TV, Swimming Pool, Gym, Wifi, etc.">
+                                          Hotel Amenities
+                                    </button>
+                                </h4>
+                              </label>
+                        </div>
+                    </div>
+               </div>
+               <button type="submit" class="btn btn-success mb-2">Next</button>
+            </form>
+        </div>
+        <footer>
+            <p>Created by Daniel Mu, Andy Ouyang, Po Yiu Ho. Coracles are boats.</p>
+        </footer>
+
+        <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script> -->
+
+        <script
+          src="https://code.jquery.com/jquery-3.3.1.js"
+          integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+          crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/booking.js"></script>
+    </body>
+</html>
